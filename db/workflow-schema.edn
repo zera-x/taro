@@ -1,0 +1,38 @@
+[
+ {:db.id [:id -1]
+  :db.ident :workflow.name
+  :db.type :db.type.string
+  :db.doc "The name of the workflow"}
+ {:db.id [:id -2]
+  :db.ident :workflow.states
+  :db.type :db.type.ref
+  :db.cardinality :db.cardinality.many
+  :db.doc "A list of workflow states"}
+ {:db.id [:id -3]
+  :db.ident :moment.state
+  :db.type :db.type.ref
+  :db.doc "Workflow state associated with the moment"}
+ {:db.id [:id -4]
+  :db.ident :moment.entity
+  :db.type :db.type.ref
+  :db.doc "The entity that the state is a applied to"}
+ {:db.id [:id -5]
+  :db.ident :moment.instant
+  :db.type :db.type.instant
+  :db.doc "A timestamp to chronical the state change"}
+]
+[
+ {:db.id [:id -3]
+  :db.ident :workflow.jobsub-conversion
+  :workflow.states
+    [{:db.id [:id -4]
+      :db.ident :jobsub-conversion/document}
+     {:db.id [:id -5]
+      :db.ident :jobsub-conversion/in-git}
+     {:db.id [:id -6]
+      :db.ident :jobsub-conversion/initial-test}
+     {:db.id [:id -7]
+      :db.ident :jobsub-conversion/converted}
+     {:db.id [:id -8]
+      :db.ident :jobsub-conversion/post-test}]}
+]

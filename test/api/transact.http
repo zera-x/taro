@@ -1,0 +1,4 @@
+POST http://localhost:9292/api/repos/test1 HTTP/1.1
+content-type: application/json
+
+[["db.assert", [:db, -1], "test.testing", "This is a test"]]

@@ -1,0 +1,39 @@
+%a{:href => repos} &lt;&lt;back to repos
+
+%h1= @repo
+%form.form-inline{:method => "POST", :action => entity(@repo), :style => "padding-bottom: 10px"}
+  %button.btn.btn-primary Add Entity
+
+%form.form{:method => "GET", :action => repos(@repo)}
+  .container-fluid
+    .row
+      .col-md-10
+        .form-group
+          %textarea.form-control{:name => 'q', :style => 'font-family: Monaco, Consolas, monospace'}
+            = h(@query || '[:find ?eid ?attr ?val :where [?eid ?attr ?val]]')
+      .col-md-2
+        %button.btn.btn-default Execute
+
+- if @facts.nil? and params[:q]
+  .well
+    %p Nothing here, add something!
+- else
+  %table.table
+    %thead
+      %tr
+        - @fields.each do |field|
+          %th= field
+    %tbody
+      - @facts.each do |fact|
+        %tr
+          - @fields.each do |field|
+            - if field == :eid
+              %td.eid
+                %a{:href => entity(@repo, fact[:eid])}
+                  = fact[:eid]
+            - else
+              %td.attr=format fact[field]
+  %nav
+    %ul.pagination
+      =prev_page @page, @query
+      =next_page @page, @query

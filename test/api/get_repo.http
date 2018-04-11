@@ -1,0 +1,2 @@
+GET http://localhost:9292/api/repos/test HTTP/1.1
+content-type: application/json

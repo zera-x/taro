@@ -1,0 +1,11 @@
+.container-fluid{:style => "padding-top: 10px"}
+  %form.form-inline{:method => "POST", :action => repos, :onsubmit => 'event.preventDefault(); subway.validateRequired("[name=repo]", "A repo name is required")'}
+    .form-group
+      %input.form-control{:type => 'text', :name => 'repo', :placeholder => 'Jobs'}
+    %button.btn.btn-primary Add Repo
+
+  %h2 Repositories
+  %ul
+    - @repos.each do |repo|
+      %li
+        %a{:href => repos(repo)}= repo

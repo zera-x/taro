@@ -1,0 +1,34 @@
+%a{:href => repos(params[:repo])} &lt;&lt;back to "#{@repo}" repo
+%h1  
+  - if @entity_ident
+    =@entity_ident
+  - else
+    Entity
+
+%input{:type => 'hidden', :name => 'repo', :value => params[:repo]}
+%input{:type => 'hidden', :name => 'eid', :value => params[:eid]}
+
+.btn-group
+  %button.btn.btn-primary{:onclick => 'subway.ADD_ENTITY_ATTR()'} Add Attribute
+  %a.btn.btn-default{:href => api_entity(params[:repo], params[:eid])} View Data
+
+%table.table.entity
+  %thead
+    %tr
+      %th Name
+      %th Value
+      %th -
+  %tbody
+    - @entity_facts.each do |fact|
+      %tr{:'data-attr' => encode_punct(fact[:attr])}
+        %td.attr
+          = fact[:attr]
+          %input{:type => 'hidden', :value => fact[:attr]}
+        %td.val
+          %input.form-control{:type => 'text', :value => fact[:val]}
+        %td
+          .btn-group
+            %button.btn.btn-default{:'data-attr' => encode_punct(fact[:attr]), :onclick => 'subway.UPDATE_ENTITY_ATTR(this)'} Update
+            %button.btn.btn-default{:'data-attr' => encode_punct(fact[:attr]), :onclick => 'subway.REMOVE_ENTITY_ATTR(this)'} Remove
+            - if Subway::VALUE_TYPE_CODES[fact[:valType]] == :'db.type.ref'
+              %a.btn.btn-default{:href => entity(params[:repo], fact[:val])} View
