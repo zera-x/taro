@@ -1,7 +1,7 @@
 NAME
 ====
 
-Subway - A jobsub meta data repository
+Taro - A queryable data store
 
 Hypermedia API
 ==============
