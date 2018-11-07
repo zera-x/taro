@@ -15,7 +15,7 @@ JRUBY_VERSION=9.1.12.0
 JRUBY_JAR_NAME=jruby.jar
 JRUBY_JAR=resources/jruby-$(JRUBY_VERSION)/lib/$(JRUBY_JAR_NAME)
 RUBY=resources/jruby-$(JRUBY_VERSION)/bin/jruby
-BUNDLER_VERSION=1.15.2
+BUNDLER_VERSION=1.17.0
 BUNDLER_PATH=resources/jruby-$(JRUBY_VERSION)/lib/ruby/gems/shared/gems/bundler-$(BUNDLER_VERSION)
 
 PWD=$(shell pwd)
@@ -54,7 +54,7 @@ $(TOMCAT_PATH):
 	$(TOM_BIN) install $(TOMCAT_VERSION)
 
 console:
-	$(RUBY) -S pry -r ./app/subway.rb
+	$(RUBY) -S pry -r ./app/$(NAME).rb
 
 server:
 	$(RUBY) -S rackup
@@ -81,7 +81,7 @@ help:
 	@echo "     all - build WAR file in 'dist' directory"
 	@echo "   clean - remove 'dist' directory"
 	@echo "  server - run application on a local JRuby based web server"
-	@echo "console - open console with application environment loaded"
+	@echo " console - open console with application environment loaded"
 	@echo "  deploy - deploy application to your local Tomcat installation"
 	@echo "undeploy - remove application from your local Tomcat installation"
 	@echo "   setup - development envionment including JRuby dependencies and Tomcat installation"

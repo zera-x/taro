@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.3.3', :engine => 'jruby', :engine_version => '9.1.12.0'
 
-gem 'sinatra', '2.0.0'
-gem 'sinatra-contrib', '2.0.0'
+gem 'sinatra', '~> 2.0.1'
+gem 'sinatra-contrib', '~> 2.0.1'
 gem 'emk-sinatra-url-for', '0.2.1'
 gem 'sequel', '4.48.0'
 gem 'jdbc-sqlite3', '3.15.1'
