@@ -1,4 +1,4 @@
-module Subway
+module Taro
   META_DB_NAME    = :meta
   ID_ATTR         = :'db.id'
   IDENT_ATTR      = :'db.ident'

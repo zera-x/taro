@@ -1,4 +1,4 @@
-module Subway
+module Taro
   class Transactor
     def self.read_json(json)
       JSON.parse(json).map do |tx|

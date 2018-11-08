@@ -1,4 +1,4 @@
-module Subway
+module Taro
   class MalformedQueryException < Exception; end
 
   class Query

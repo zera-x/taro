@@ -1,4 +1,4 @@
-module Subway
+module Taro
   module Core
     def vector(*args)
       Hamster::Vector.new(args)

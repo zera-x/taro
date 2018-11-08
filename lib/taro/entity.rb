@@ -1,4 +1,4 @@
-module Subway
+module Taro
   class Database
     class Entity
       attr_reader :dbid

@@ -11,13 +11,13 @@ require 'hamster'
 require 'edn'
 require 'unific'
 
-require_relative 'subway/core_ext'
-require_relative 'subway/core'
-require_relative 'subway/types'
-require_relative 'subway/query'
-require_relative 'subway/db'
+require_relative 'taro/core_ext'
+require_relative 'taro/core'
+require_relative 'taro/types'
+require_relative 'taro/query'
+require_relative 'taro/db'
 
-module Subway
+module Taro
   VERSION = '0.1.0'.freeze
 
   def self.uuid

@@ -1,4 +1,4 @@
-module Subway
+module Taro
   # Perl Data Notation
   class PDN
     def self.decode(str)

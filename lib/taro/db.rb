@@ -1,6 +1,6 @@
 require_relative 'transactor'
 
-module Subway
+module Taro
   class Database
     include Enumerable
     include Subway::Types
