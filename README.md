@@ -1,7 +1,7 @@
 NAME
 ====
 
-Taro - A queryable data store
+Taro (タロ) - A functional/relational object store
 
 Hypermedia API
 ==============
