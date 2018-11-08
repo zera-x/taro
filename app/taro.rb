@@ -10,10 +10,11 @@ require 'murmurhash3'
 require 'uri'
 require 'json'
 
-require_relative '../lib/subway'
-require_relative '../lib/subway/perl'
+require_relative '../lib/taro'
+require_relative '../lib/taro/perl'
 require_relative 'helpers'
 
+# TODO: remove, make this configurable
 DB = Sequel.connect("jdbc:sqlite:#{File.join(File.dirname(__FILE__), '..', 'db', 'subway.db')}")
 
 #
@@ -22,7 +23,7 @@ DB = Sequel.connect("jdbc:sqlite:#{File.join(File.dirname(__FILE__), '..', 'db',
 
 use Rack::MethodOverride
 
-db = Subway::Database.make(:jobs)
+db = Taro::Database.make(:jobs)
 if db.first.nil?
   db.transact(EDN.read(open(File.join(__dir__, '..', 'db', 'schema.edn'))))
 end
@@ -50,8 +51,8 @@ not_found do
 end
 
 helpers do
-  include Subway
-  include Subway::Helpers
+  include Taro
+  include Taro::Helpers
 end
 
 get '/js/app.js' do
@@ -103,19 +104,19 @@ namespace '/admin' do
   get '/repos/:repo/entity/:eid' do
     @repo = params[:repo]
     @entity_facts = repo(params[:repo]).facts(params[:eid])
-    @entity_ident = @entity_facts.select { |f| f[:attr] == Subway::IDENT_ATTR }.first
+    @entity_ident = @entity_facts.select { |f| f[:attr] == Taro::IDENT_ATTR }.first
     haml :entity
   end
   
   # assert fact to entity
   post '/repos/:repo/entity/:eid' do
-    repo(params[:repo]).transact([[Subway::Database::ASSERT_IDENT, params[:eid], params[:attr], params[:val]]])
+    repo(params[:repo]).transact([[Taro::Database::ASSERT_IDENT, params[:eid], params[:attr], params[:val]]])
     redirect entity(params[:repo], params[:eid])
   end
   
   # retract fact to entity
   delete '/repos/:repo/entity/:eid' do
-    repo(params[:repo]).transact([[Subway::Database::RETRACT_IDENT, params[:eid], params[:attr], params[:val]]])
+    repo(params[:repo]).transact([[Taro::Database::RETRACT_IDENT, params[:eid], params[:attr], params[:val]]])
     redirect entity(params[:repo], params[:eid])
   end
 end

@@ -123,7 +123,7 @@ module Taro
   class ValueTypeWriter
     attr_reader :repo
 
-    include Subway::Core
+    include Taro::Core
 
     def self.init(name)
       new(Database.get(name))

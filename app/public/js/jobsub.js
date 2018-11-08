@@ -1,7 +1,7 @@
 var jobsub = (function() {
     "use strict";
 
-    var _ = subway;
+    var _ = taro;
 
     function pluck(prop) {
         return function(xs) {

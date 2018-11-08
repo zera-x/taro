@@ -3,8 +3,8 @@ require_relative 'transactor'
 module Taro
   class Database
     include Enumerable
-    include Subway::Types
-    include Subway::Core
+    include Taro::Types
+    include Taro::Core
 
     attr_reader :name
     
@@ -241,7 +241,7 @@ module Taro
       tempids = facts_.map { |x| x[1] }
         .select { |x| tempid?(x) }
         .map { |x| x[1] }
-        .reduce({}) { |h, id| h.merge(id => Subway.dbid) }
+        .reduce({}) { |h, id| h.merge(id => Taro.dbid) }
 
       facts_.map do |fact|
         id = tempid?(fact[1]) ? tempids[fact[1][1]] : fact[1]
@@ -280,7 +280,7 @@ module Taro
       elsif numeral? eid
         eid.to_i
       elsif tempid? eid
-        Subway.dbid
+        Taro.dbid
       else
         ident_lookup(eid)
       end

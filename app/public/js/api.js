@@ -1,7 +1,7 @@
-var subway;
-(function (subway) {
+var taro;
+(function (taro) {
 
-    var _ = subway;
+    var _ = taro;
 
     var Connection = (function () {
 
@@ -57,7 +57,7 @@ var subway;
         return Connection;
     }());
 
-    subway.Connection = Connection;
+    taro.Connection = Connection;
 
     var Database = (function () {
         function Database(conn, name) {
@@ -97,47 +97,47 @@ var subway;
 
     }());
 
-    subway.connect = function(endpoint) {
+    taro.connect = function(endpoint) {
         return new Connection(endpoint);
     };
 
-    subway.db = function(conn, name) {
+    taro.db = function(conn, name) {
         return new Database(conn, name);
     };
 
-    subway.transact = function(db, txs) {
+    taro.transact = function(db, txs) {
         return db.transact(txs);
     };
 
-    subway.entity = function(db, id) {
+    taro.entity = function(db, id) {
         return db.entity(id);
     };
 
-    subway.query = function(db, q, p, psize) {
+    taro.query = function(db, q, p, psize) {
         return db.query(q, p, psize);
     };
 
-    subway.createRepo = function(conn, name) {
+    taro.createRepo = function(conn, name) {
         return conn.createRepo(name).then(function(dbname) {
             return new Database(conn, dbname);
         });
     };
 
-    subway.repos = function(conn) {
+    taro.repos = function(conn) {
         return conn.repos();
     };
 
-    subway.endpoint = function() {
+    taro.endpoint = function() {
         var loc = window.location;
-        var url = _.str('http://', loc.hostname, ':', loc.port, subway.ROOT_URL);
+        var url = _.str('http://', loc.hostname, ':', loc.port, taro.ROOT_URL);
         if (url.endsWith('/')) {
             return url.slice(0, url.length - 1);
         }
         return url;
     };
 
-    subway.path = function(path) {
-        var end = subway.endpoint();
+    taro.path = function(path) {
+        var end = taro.endpoint();
         if (path == null) return end;
         if (_.isString(path)) {
             return _.str(end, '/', path);
@@ -157,4 +157,4 @@ var subway;
         }
     };
 
-})(subway || (subway = {}));
+})(taro || (taro = {}));

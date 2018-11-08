@@ -9,7 +9,7 @@
 %input{:type => 'hidden', :name => 'eid', :value => params[:eid]}
 
 .btn-group
-  %button.btn.btn-primary{:onclick => 'subway.ADD_ENTITY_ATTR()'} Add Attribute
+  %button.btn.btn-primary{:onclick => 'taro.ADD_ENTITY_ATTR()'} Add Attribute
   %a.btn.btn-default{:href => api_entity(params[:repo], params[:eid])} View Data
 
 %table.table.entity
@@ -28,7 +28,7 @@
           %input.form-control{:type => 'text', :value => fact[:val]}
         %td
           .btn-group
-            %button.btn.btn-default{:'data-attr' => encode_punct(fact[:attr]), :onclick => 'subway.UPDATE_ENTITY_ATTR(this)'} Update
-            %button.btn.btn-default{:'data-attr' => encode_punct(fact[:attr]), :onclick => 'subway.REMOVE_ENTITY_ATTR(this)'} Remove
-            - if Subway::VALUE_TYPE_CODES[fact[:valType]] == :'db.type.ref'
+            %button.btn.btn-default{:'data-attr' => encode_punct(fact[:attr]), :onclick => 'taro.UPDATE_ENTITY_ATTR(this)'} Update
+            %button.btn.btn-default{:'data-attr' => encode_punct(fact[:attr]), :onclick => 'taro.REMOVE_ENTITY_ATTR(this)'} Remove
+            - if Taro::VALUE_TYPE_CODES[fact[:valType]] == :'db.type.ref'
               %a.btn.btn-default{:href => entity(params[:repo], fact[:val])} View

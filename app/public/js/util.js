@@ -2,9 +2,9 @@
 (function($) {
     "use strict";
 
-    this.subway = this.subway || {};
-    // subway namespace
-    // ===================
+    this.taro = this.taro || {};
+    // taro namespace
+    // ==============
     //
     // A collection of functions for application logic and front-end utilities.
 
@@ -31,7 +31,7 @@
     };
 
     Cons.prototype.count = function() {
-        return 1 + this.subway.count(this._more);
+        return 1 + this.taro.count(this._more);
     };
 
     // Seqable
@@ -91,7 +91,7 @@
         }
     };
 
-    this.subway.List = List;
+    this.taro.List = List;
 
     function list() {
         var i, l = List.EMPTY;
@@ -101,13 +101,13 @@
         return l;
     }
 
-    this.subway.list = list;
+    this.taro.list = list;
 
     function isList(x) {
         return x instanceof List;
     }
 
-    this.subway.isList = isList;
+    this.taro.isList = isList;
 
     function LazyList(seq, fn) {
         this.fn = fn == null ? null : fn;
@@ -170,19 +170,19 @@
         return this._seq.next();
     };
 
-    this.subway.LazyList = LazyList;
+    this.taro.LazyList = LazyList;
 
     function lazyList(fn) {
         return new LazyList(null, fn);
     }
 
-    this.subway.lazyList = lazyList;
+    this.taro.lazyList = lazyList;
 
     function isLazyList(x) {
         return x instanceof LazyList;
     }
 
-    this.subway.isLazyList = isLazyList;
+    this.taro.isLazyList = isLazyList;
 
     function isSeq(x) {
         return x != null && x.first && x.next;
@@ -270,7 +270,7 @@
         });
     }
 
-    this.subway.take = take;
+    this.taro.take = take;
 
     function drop(n, xs) {
         if (arguments.length !== 2) {
@@ -287,7 +287,7 @@
         });
     }
 
-    this.subway.drop = drop;
+    this.taro.drop = drop;
 
     function N(n) {
         var n_ = n == null ? 0 : n;
@@ -296,7 +296,7 @@
         }));
     }
 
-    this.subway.N = N;
+    this.taro.N = N;
 
     // convert an array-like object (any object with a length prototype
     // and numeric indexes) into an array
@@ -323,61 +323,61 @@
         return Object.prototype.toString.call(x) === '[object Array]';
     }
 
-    this.subway.isArray = isArray;
+    this.taro.isArray = isArray;
 
     function isString(x) {
         return Object.prototype.toString.call(x) === '[object String]';
     }
 
-    this.subway.isString = isString;
+    this.taro.isString = isString;
 
     function isFunction(x) {
         return Object.prototype.toString.call(x) === '[object Function]';
     }
 
-    this.subway.isFunction = isFunction;
+    this.taro.isFunction = isFunction;
 
     function isObject(x) {
         return Object.prototype.toString.call(x) === '[object Object]';
     }
 
-    this.subway.isObject = isObject;
+    this.taro.isObject = isObject;
 
     function isBoolean(x) {
         return Object.prototype.toString.call(x) === '[object Boolean]';
     }
 
-    this.subway.isBoolean = isBoolean;
+    this.taro.isBoolean = isBoolean;
 
     function isNumber(x) {
         return Object.prototype.toString.call(x) === '[object Number]';
     }
 
-    this.subway.isNumber = isNumber;
+    this.taro.isNumber = isNumber;
 
     function isNull(x) {
         return x === null;
     }
 
-    this.subway.isNull = isNull;
+    this.taro.isNull = isNull;
 
     function isUndefined(x) {
         return x === void(0);
     }
 
-    this.subway.isUndefined = isUndefined;
+    this.taro.isUndefined = isUndefined;
 
     function exists(x) {
         return x != null;
     }
 
-    this.subway.exists = exists;
+    this.taro.exists = exists;
 
     function isArrayLike(x) {
         return x != null && isNumber(x.length);
     }
 
-    this.subway.isArrayLike = isArrayLike;
+    this.taro.isArrayLike = isArrayLike;
 
     // cooerce strings into numbers
     //
@@ -387,7 +387,7 @@
         else           return 1 * s;
     }
     
-    this.subway.num = num;
+    this.taro.num = num;
 
     // use a reducing function to combine a collection of
     // values into a new value
@@ -577,16 +577,16 @@
     };
 
     // exports
-    this.subway.html = html;
-    this.subway.renderTo = renderTo;
-    this.subway.appendTo = appendTo;
-    this.subway.encodePunct = encodePunct;
-    this.subway.str = str;
-    this.subway.toArray = toArray;
-    this.subway.map = map;
-    this.subway.reduce = reduce;
-    this.subway.fmtParams = fmtParams;
-    this.subway.http = http;
-    this.subway.print = print;
+    this.taro.html = html;
+    this.taro.renderTo = renderTo;
+    this.taro.appendTo = appendTo;
+    this.taro.encodePunct = encodePunct;
+    this.taro.str = str;
+    this.taro.toArray = toArray;
+    this.taro.map = map;
+    this.taro.reduce = reduce;
+    this.taro.fmtParams = fmtParams;
+    this.taro.http = http;
+    this.taro.print = print;
 
 }).call(window, jQuery);

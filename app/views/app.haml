@@ -4,12 +4,12 @@
     %meta{:charset => "utf-8"}
     %meta{:http-equiv => "X-UA-Compatible", :content => "IE=edge"}
     %meta{:name => "viewport", :content => "width=device-width, intial-scale=1"}
-    %title Subway
+    %title Taro
     %link{:rel => "stylesheet", :href => url_for("/css/bootstrap.min.css")}
   %body
     :javascript
-      window.subway = window.subway || {};
-      window.subway.ROOT_URL = "#{url_for('/')}"
+      window.taro = window.taro || {};
+      window.taro.ROOT_URL = "#{url_for('/')}"
     .messages
     .container#main
     %script{:src => url_for("/js/jquery.min.js")}

@@ -1,6 +1,6 @@
 require 'cgi'
 
-module Subway
+module Taro
   module Helpers
     def repos(id=nil)
       if id
@@ -55,7 +55,7 @@ module Subway
     end
 
     def add_entity(name)
-      Subway.dbid
+      Taro.dbid
     end
 
     def paginate(enum, p, psize)
@@ -82,7 +82,7 @@ module Subway
       if val.nil?
         'nil'
       elsif val.is_a? URI
-        "<a target=\"__subway\" href=\"#{val.to_s}\">#{val.to_s}</a>"
+        "<a target=\"__taro\" href=\"#{val.to_s}\">#{val.to_s}</a>"
       elsif val.is_a? FalseClass
         'no'
       elsif val.is_a? TrueClass
