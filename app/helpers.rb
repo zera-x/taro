@@ -51,7 +51,7 @@ module Taro
     end
 
     def repo(name)
-      Database.get(name)
+      Database.get(CONNECTION, name)
     end
 
     def add_entity(name)
@@ -63,11 +63,11 @@ module Taro
     end
 
     def make_repo(name)
-      Database.make(name)
+      Database.make(CONNECTION, name)
     end
 
     def repo_list
-      Database.all
+      Database.all(CONNECTION)
     end
 
     def u(s)

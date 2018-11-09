@@ -14,8 +14,7 @@ require_relative '../lib/taro'
 require_relative '../lib/taro/perl'
 require_relative 'helpers'
 
-# TODO: remove, make this configurable
-DB = Sequel.connect("jdbc:sqlite:#{File.join(File.dirname(__FILE__), '..', 'db', 'subway.db')}")
+CONNECTION = Taro::Connection.new("jdbc:sqlite:#{File.join(File.dirname(__FILE__), '..', 'db', 'subway.db')}")
 
 #
 # The web app
@@ -23,7 +22,7 @@ DB = Sequel.connect("jdbc:sqlite:#{File.join(File.dirname(__FILE__), '..', 'db',
 
 use Rack::MethodOverride
 
-db = Taro::Database.make(:jobs)
+db = Taro::Database.make(CONNECTION, :jobs)
 if db.first.nil?
   db.transact(EDN.read(open(File.join(__dir__, '..', 'db', 'schema.edn'))))
 end

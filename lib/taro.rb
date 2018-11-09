@@ -15,6 +15,7 @@ require_relative 'taro/core_ext'
 require_relative 'taro/core'
 require_relative 'taro/types'
 require_relative 'taro/query'
+require_relative 'taro/connection'
 require_relative 'taro/db'
 
 module Taro

@@ -15,11 +15,13 @@ module Taro
     class TransactionError < DatabaseError; end
 
     class << self
-      def all
-        DB.tables.map { |r| get(r) }
+      # TODO: this should be a method of Taro::Connection
+      def all(conn)
+        conn.tables.map { |r| get(conn, r) }
       end
   
-      def get(name)
+      # TODO: this should be a method of Taro::Connection
+      def get(conn, name)
         name =
           if name.is_a? Symbol
             name
@@ -29,7 +31,7 @@ module Taro
             raise 'name should be a symbol or a string'
           end
         @dbs ||= {}
-        @dbs[name] ||= new(name, DB[name])
+        @dbs[name] ||= new(name, conn[name])
       end
       alias [] get
   
@@ -37,8 +39,9 @@ module Taro
         @meta ||= make(META_DB_NAME)
       end
   
-      def make(name)
-        DB.create_table? name do
+      # TODO: this should be a method of Taro::Connection
+      def make(conn, name)
+        conn.create_table? name do
           Bignum      :tx
           DateTime    :t,       :null => false
           Boolean     :retract, :null => false, :default => false
@@ -50,10 +53,11 @@ module Taro
           primary_key [:tx, :t, :retract, :eid, :attr, :valType, :many, :val]
         end
     
-        get(name)
+        get(conn, name)
       end
     end
 
+    # TODO: this should take a name and a Taro::Connection
     def initialize(name, dataset)
       @name    = name
       @dataset = dataset
@@ -168,8 +172,9 @@ module Taro
       end
     end
 
-    def transact(facts)
-      DB.transaction do
+    # TODO: Move this to Taro::Transactor
+    def transact(conn, facts)
+      conn.transaction do
         t, tx = txdata
         res = process_facts(facts).map do |f|
           f = f.merge(:tx => tx, :t => t)
