@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.3.3', :engine => 'jruby', :engine_version => '9.1.12.0'
 
-gem 'sinatra', '~> 2.0.1'
-gem 'sinatra-contrib', '~> 2.0.1'
+gem 'sinatra', '2.0.8.1'
+gem 'sinatra-contrib', '2.0.8.1'
 gem 'emk-sinatra-url-for', '0.2.1'
 gem 'sequel', '4.48.0'
 gem 'jdbc-sqlite3', '3.15.1'
@@ -14,14 +14,14 @@ gem 'unific', '0.12'
 gem 'murmurhash3', '0.1.6'
 gem 'hamster', '3.0.0'
 gem 'concurrent-ruby', '1.0.5'
-gem 'puma', '3.9.1'
+gem 'puma', '3.12.2'
 gem 'edn', '1.1.1'
 gem 'builder', '~> 2.0'
 #gem 'transit-ruby', '0.8.599'
 gem 'kramdown', '1.14.0'
 
 #gem 'rerun', '0.11.4',  :group => :development
-gem 'warbler', '2.0.4', :group => :development
+gem 'warbler', '2.0.5', :group => :development
 gem 'pry', '0.10.4', :group => :development
 gem 'rake', '12.0.0', :group => :development
 gem 'test-unit', '3.2.5', :group => :development
