@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3', :engine => 'jruby', :engine_version => '9.1.12.0'
+#ruby '2.3.3', :engine => 'jruby', :engine_version => '9.1.12.0'
 
 gem 'sinatra', '2.0.8.1'
 gem 'sinatra-contrib', '2.0.8.1'
 gem 'emk-sinatra-url-for', '0.2.1'
 gem 'sequel', '4.48.0'
-gem 'jdbc-sqlite3', '3.15.1'
-gem 'haml', '5.0.1'
+gem 'sqlite3'
+gem 'haml', '5.0.4'
 gem 'uuidtools', '2.1.5'
 gem 'coffee-script', '2.4.1'
 gem 'unific', '0.12'

@@ -14,7 +14,7 @@ require_relative '../lib/taro'
 require_relative '../lib/taro/perl'
 require_relative 'helpers'
 
-CONNECTION = Taro::Connection.new("jdbc:sqlite:#{File.join(File.dirname(__FILE__), '..', 'db', 'subway.db')}")
+CONNECTION = Taro::Connection.new("sqlite://#{File.join(File.dirname(__FILE__), '..', 'db', 'subway.db')}")
 
 #
 # The web app
@@ -109,13 +109,13 @@ namespace '/admin' do
   
   # assert fact to entity
   post '/repos/:repo/entity/:eid' do
-    repo(params[:repo]).transact([[Taro::Database::ASSERT_IDENT, params[:eid], params[:attr], params[:val]]])
+    repo(params[:repo]).transact(CONNECTION, [[Taro::Database::ASSERT_IDENT, params[:eid], params[:attr], params[:val]]])
     redirect entity(params[:repo], params[:eid])
   end
   
   # retract fact to entity
   delete '/repos/:repo/entity/:eid' do
-    repo(params[:repo]).transact([[Taro::Database::RETRACT_IDENT, params[:eid], params[:attr], params[:val]]])
+    repo(params[:repo]).transact(CONNECTION, [[Taro::Database::RETRACT_IDENT, params[:eid], params[:attr], params[:val]]])
     redirect entity(params[:repo], params[:eid])
   end
 end
