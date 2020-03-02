@@ -4,3 +4,4 @@ fatlib/
 resources/jruby-9.1.12.0/bin/
 dist/
 *.sw*
+tags*
