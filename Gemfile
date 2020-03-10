@@ -21,6 +21,6 @@ gem 'kramdown', '1.14.0'
 #gem 'rerun', '0.11.4',  :group => :development
 #gem 'warbler', '2.0.5', :group => :development
 gem 'pry', '0.10.4', :group => :development
-gem 'rake', '~> 12.0', :group => :development
+gem 'rake', '~> 13.0', :group => :development
 gem 'test-unit', '3.2.5', :group => :development
 gem 'test-unit-runner-tap', '1.1.2', :group => :development
