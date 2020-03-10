@@ -20,8 +20,6 @@ GEM
       tilt
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
-    jruby-jars (9.2.9.0)
-    jruby-rack (1.1.21)
     kramdown (1.14.0)
     method_source (0.8.2)
     multi_json (1.14.1)
@@ -39,14 +37,13 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
       spoon (~> 0.0)
-    puma (3.12.2)
-    puma (3.12.2-java)
+    puma (3.12.4)
+    puma (3.12.4-java)
     rack (2.1.1)
     rack-protection (2.0.8.1)
       rack
     rake (12.0.0)
     ruby2_keywords (0.0.2)
-    rubyzip (1.3.0)
     sequel (4.48.0)
     sinatra (2.0.8.1)
       mustermann (~> 1.0)
@@ -72,11 +69,6 @@ GEM
     tilt (2.0.10)
     unific (0.12)
     uuidtools (2.1.5)
-    warbler (2.0.5)
-      jruby-jars (>= 9.0.0.0)
-      jruby-rack (>= 1.1.1, < 1.3)
-      rake (>= 10.1.0)
-      rubyzip (~> 1.0, < 1.4)
 
 PLATFORMS
   java
@@ -94,8 +86,8 @@ DEPENDENCIES
   kramdown (= 1.14.0)
   murmurhash3 (= 0.1.6)
   pry (= 0.10.4)
-  puma (= 3.12.2)
-  rake (= 12.0.0)
+  puma (= 3.12.4)
+  rake (~> 12.0)
   sequel (= 4.48.0)
   sinatra (= 2.0.8.1)
   sinatra-contrib (= 2.0.8.1)
@@ -104,7 +96,6 @@ DEPENDENCIES
   test-unit-runner-tap (= 1.1.2)
   unific (= 0.12)
   uuidtools (= 2.1.5)
-  warbler (= 2.0.5)
 
 BUNDLED WITH
    2.1.4
