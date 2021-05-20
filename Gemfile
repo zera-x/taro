@@ -16,7 +16,7 @@ gem 'puma', '4.3.8'
 gem 'edn', '1.1.1'
 gem 'builder', '~> 2.0'
 #gem 'transit-ruby', '0.8.599'
-gem 'kramdown', '1.14.0'
+gem 'kramdown', '2.3.1'
 
 #gem 'rerun', '0.11.4',  :group => :development
 #gem 'warbler', '2.0.5', :group => :development
