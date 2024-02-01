@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'sinatra', '2.0.8.1'
-gem 'sinatra-contrib', '2.0.8.1'
+gem 'sinatra', '4.0.0'
+gem 'sinatra-contrib', '4.0.0'
 gem 'emk-sinatra-url-for', '0.2.1'
 gem 'sequel', '4.48.0'
 gem 'sqlite3'
